@@ -1,0 +1,15 @@
+language: "de"
+intents:
+  MassPlayMediaOnMediaPlayer:
+    data:
+      - sentences:
+          - "([spiele] {query};(<on> <name>|<local_in> <area>|<on> {(der|dem) ],{area} <player_devices>|<on> [(der|dem) ]<player_devices> <local_in> <area>))"
+        expansion_rules:
+          player_devices: "(speaker|[media] player)"
+          "on": "(auf|über|mit)"
+          local_in: "(in|im)"
+        requires_context:
+          domain: "media_player"
+lists:
+  query:
+    wildcard: true
